@@ -11,18 +11,18 @@ export default function MediaLibraryPage() {
               search
             </span>
             <input
-              className="w-full pl-12 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 text-sm transition-all"
+              className="w-full pl-12 pr-4 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900/20 focus:border-slate-900/50 dark:focus:ring-white/20 dark:focus:border-white/50 text-sm transition-all"
               placeholder="Medya kütüphanesinde ara..."
               type="text"
             />
           </div>
         </div>
         <div className="flex items-center gap-5">
-          <button className="size-11 flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors border border-slate-100 dark:border-slate-700">
+          <button className="size-11 flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-100 dark:border-slate-700">
             <span className="material-symbols-outlined">notifications</span>
           </button>
-          <button className="bg-primary hover:bg-primary-dark text-white h-11 px-6 rounded-2xl text-sm font-bold flex items-center gap-2 shadow-lg shadow-primary/20 transition-all active:scale-95">
-            <span className="material-symbols-outlined text-xl">
+          <button className="bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 h-11 px-6 rounded-2xl text-sm font-bold flex items-center gap-2 shadow-sm transition-all active:scale-95">
+            <span className="material-symbols-outlined text-[20px]">
               cloud_upload
             </span>
             Yükle
@@ -46,30 +46,30 @@ export default function MediaLibraryPage() {
 
           {/* Filter Tags */}
           <div className="flex flex-wrap items-center gap-3 pb-6 border-b border-slate-200 dark:border-slate-800">
-            <button className="px-6 py-2.5 rounded-xl bg-primary text-white text-xs font-bold shadow-md shadow-primary/20">
+            <button className="px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-bold shadow-sm">
               Tümü
             </button>
-            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-primary hover:text-primary transition-all flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">
+            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-slate-900 hover:text-slate-900 dark:hover:border-white dark:hover:text-white transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px]">
                 video_library
               </span>{" "}
               Videolar
             </button>
-            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-primary hover:text-primary transition-all flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">
+            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-slate-900 hover:text-slate-900 dark:hover:border-white dark:hover:text-white transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px]">
                 description
               </span>{" "}
               Belgeler
             </button>
-            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-primary hover:text-primary transition-all flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">image</span>{" "}
+            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-slate-900 hover:text-slate-900 dark:hover:border-white dark:hover:text-white transition-all flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px]">image</span>{" "}
               Görseller
             </button>
             <div className="h-8 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
-            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
+            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-slate-900 hover:text-slate-900 dark:hover:border-white dark:hover:text-white transition-all">
               Yayınlanmış
             </button>
-            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
+            <button className="px-5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-slate-900 hover:text-slate-900 dark:hover:border-white dark:hover:text-white transition-all">
               Taslak
             </button>
           </div>
@@ -77,13 +77,13 @@ export default function MediaLibraryPage() {
           {/* Media Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {/* Video Card */}
-            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
               <div className="aspect-video relative bg-slate-200 dark:bg-slate-800 overflow-hidden">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage:
-                      "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqVWZDcvIG997qS4kCXOsE2DEOXUgOWM1Xfmyje7nFztE0skSBCWhrF0jG1dah95J-QHvSpnG_CcnlUpXQKzdaEN49DpUyNSToJo28B_2lfdTg7Pdd1MBOamoQe0JfNXMFQJh8Shkv82bDhjuT2EqSaC72ZZexmaPvKxbjT3qOcln8H_in6GyEZIH1YpTPdjuutrjBNGPjb3h4DaYQcowfb5wqI-qpNz7OXuu54uDq5U-2WU5MJYBAsG5x76B6-U5o43JbG78zHii4')",
+                      "url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600')",
                   }}
                 ></div>
                 <div className="absolute top-3 right-3 flex gap-1">
@@ -91,9 +91,9 @@ export default function MediaLibraryPage() {
                     Yayınlandı
                   </span>
                 </div>
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                  <button className="size-14 rounded-full bg-white text-primary shadow-xl flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
-                    <span className="material-symbols-outlined text-4xl">
+                <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                  <button className="size-14 rounded-full bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xl flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform">
+                    <span className="material-symbols-outlined text-[36px]">
                       play_arrow
                     </span>
                   </button>
@@ -105,7 +105,7 @@ export default function MediaLibraryPage() {
               <div className="p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                       Kurumsal İletişim Temelleri
                     </h3>
                     <p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5 font-medium">
@@ -115,7 +115,7 @@ export default function MediaLibraryPage() {
                       Video • 24.5 MB
                     </p>
                   </div>
-                  <button className="text-slate-400 hover:text-primary transition-colors">
+                  <button className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <span className="material-symbols-outlined">more_horiz</span>
                   </button>
                 </div>
@@ -124,13 +124,13 @@ export default function MediaLibraryPage() {
                     12 May 2024
                   </p>
                   <div className="flex gap-1.5">
-                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
-                      <span className="material-symbols-outlined text-xl">
+                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center">
+                      <span className="material-symbols-outlined text-[20px]">
                         visibility
                       </span>
                     </button>
-                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
-                      <span className="material-symbols-outlined text-xl">
+                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center">
+                      <span className="material-symbols-outlined text-[20px]">
                         download
                       </span>
                     </button>
@@ -140,9 +140,9 @@ export default function MediaLibraryPage() {
             </div>
 
             {/* PDF Card */}
-            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
               <div className="aspect-video relative bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary/20 text-7xl group-hover:scale-110 transition-transform duration-500">
+                <span className="material-symbols-outlined text-slate-200 dark:text-slate-700 text-7xl group-hover:scale-110 transition-transform duration-500">
                   picture_as_pdf
                 </span>
                 <div className="absolute top-3 right-3">
@@ -154,7 +154,7 @@ export default function MediaLibraryPage() {
               <div className="p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                       2024 Satış Stratejileri Kitapçığı
                     </h3>
                     <p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5 font-medium">
@@ -164,7 +164,7 @@ export default function MediaLibraryPage() {
                       PDF • 1.2 MB
                     </p>
                   </div>
-                  <button className="text-slate-400 hover:text-primary transition-colors">
+                  <button className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <span className="material-symbols-outlined">more_horiz</span>
                   </button>
                 </div>
@@ -173,12 +173,12 @@ export default function MediaLibraryPage() {
                     10 May 2024
                   </p>
                   <div className="flex gap-1.5">
-                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
+                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center">
                       <span className="material-symbols-outlined text-xl">
                         share
                       </span>
                     </button>
-                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
+                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center">
                       <span className="material-symbols-outlined text-xl">
                         download
                       </span>
@@ -189,13 +189,13 @@ export default function MediaLibraryPage() {
             </div>
 
             {/* Image Card */}
-            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
               <div className="aspect-video relative bg-slate-200 dark:bg-slate-800 overflow-hidden">
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage:
-                      "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDq5oPl90sbZjLJObqss4S6ubUaC_cxE2A6IHSUaoz-50HdLE3HbjwNbAwvmzwchpZ9h3DvOUXtQ-V0OIJWF8vvmiiYXgy8EiYR2NAxs7EL3bsHgbVVxRAYa91-w6W32OX35uzs7cmr_wQE3C857ZIUBL6s8xYYbNfxYBxHvIrxt9mE3gEm9eEybREXoDBmyQiW9F-FP2Nfe1nvb-GMVWLVLhtPJ3YIpxcx6UeZK3KcIGEuMaCxNhGi7RwKEK4Ju9YfKXCEWPTE5hmg')",
+                      "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600')",
                   }}
                 ></div>
                 <div className="absolute top-3 right-3">
@@ -207,7 +207,7 @@ export default function MediaLibraryPage() {
               <div className="p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+                    <h3 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                       Merkez Ofis Tanıtım Görseli
                     </h3>
                     <p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5 font-medium">
@@ -217,7 +217,7 @@ export default function MediaLibraryPage() {
                       Görsel • 850 KB
                     </p>
                   </div>
-                  <button className="text-slate-400 hover:text-primary transition-colors">
+                  <button className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <span className="material-symbols-outlined">more_horiz</span>
                   </button>
                 </div>
@@ -226,7 +226,7 @@ export default function MediaLibraryPage() {
                     08 May 2024
                   </p>
                   <div className="flex gap-1.5">
-                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-primary transition-colors flex items-center justify-center">
+                    <button className="size-8 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center justify-center">
                       <span className="material-symbols-outlined text-xl">
                         edit
                       </span>
@@ -266,7 +266,7 @@ export default function MediaLibraryPage() {
                       PDF • 3.4 MB
                     </p>
                   </div>
-                  <button className="text-slate-400 hover:text-primary transition-colors">
+                  <button className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <span className="material-symbols-outlined">more_horiz</span>
                   </button>
                 </div>
@@ -300,21 +300,21 @@ export default function MediaLibraryPage() {
             </p>
             <div className="flex gap-2">
               <button
-                className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:border-primary hover:text-primary transition-all disabled:opacity-30"
+                className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all disabled:opacity-30 disabled:pointer-events-none"
                 disabled
               >
                 <span className="material-symbols-outlined">chevron_left</span>
               </button>
-              <button className="size-11 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/25 active:scale-95 transition-transform">
+              <button className="size-11 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold text-sm shadow-sm active:scale-95 transition-transform">
                 1
               </button>
-              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:border-primary hover:text-primary transition-all font-bold text-sm">
+              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all font-bold text-sm">
                 2
               </button>
-              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:border-primary hover:text-primary transition-all font-bold text-sm">
+              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all font-bold text-sm">
                 3
               </button>
-              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:border-primary hover:text-primary transition-all active:scale-95 transition-transform">
+              <button className="size-11 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 transition-all active:scale-95">
                 <span className="material-symbols-outlined">chevron_right</span>
               </button>
             </div>
