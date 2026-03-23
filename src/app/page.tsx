@@ -1,9 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push("/dashboard");
+  };
+
   return (
     <main className="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
       <div className="flex w-full max-w-5xl bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-2xl min-h-[700px]">
@@ -78,7 +85,7 @@ export default function LoginPage() {
           </div>
 
           {/* Actually redirecting to dashboard for demo purposes */}
-          <form className="space-y-6" action="/dashboard">
+          <form className="space-y-6" onSubmit={handleLogin}>
             {/* Email Field */}
             <div>
               <label
