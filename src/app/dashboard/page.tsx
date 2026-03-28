@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function DashboardPage() {
+  const [selectedCourse, setSelectedCourse] = useState<any>(null);
+
   return (
     <div className="p-6 md:p-8 max-w-7xl mx-auto space-y-8">
       {/* Header */}
@@ -145,7 +150,10 @@ export default function DashboardPage() {
                     +14
                   </div>
                 </div>
-                <button className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm whitespace-nowrap border border-slate-700">
+                <button 
+                  onClick={() => setSelectedCourse({ title: "Etkin Ekip Yönetimi ve İletişim", code: "LDR-01", date: "22 Haz 2024", desc: "Ekiplerin verimliliğini artırmak için gerekli temel iletişim stratejileri ve güncel operasyonel uygulamalar." })}
+                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm whitespace-nowrap border border-slate-700"
+                >
                   Görüntüle
                 </button>
               </div>
@@ -182,7 +190,10 @@ export default function DashboardPage() {
                     +45
                   </div>
                 </div>
-                <button className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm whitespace-nowrap border border-slate-700">
+                <button 
+                  onClick={() => setSelectedCourse({ title: "Sağlıkta Yeni Dijital Sistemler", code: "DGT-04", date: "25 Haz 2024", desc: "Günlük iş süreçlerinde dijital sistem entegrasyonu ve hasta verilerinin güvenli yönetimi." })}
+                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm whitespace-nowrap border border-slate-700"
+                >
                   Görüntüle
                 </button>
               </div>
@@ -190,6 +201,67 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
+
+      {/* Course Detail Modal */}
+      {selectedCourse && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden animate-in zoom-in-95 duration-200">
+            <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/50">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-xl flex items-center justify-center">
+                  <span className="material-symbols-outlined text-slate-700 dark:text-slate-300 text-[20px]">event_note</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-lg">Eğitim Detayı</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{selectedCourse.code}</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedCourse(null)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200/50 dark:bg-slate-700/50 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-colors"
+              >
+                <span className="material-symbols-outlined text-[20px]">close</span>
+              </button>
+            </div>
+            <div className="p-6 space-y-6">
+              <div>
+                <h4 className="text-xl font-black text-slate-900 dark:text-white mb-2">{selectedCourse.title}</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                  {selectedCourse.desc}
+                </p>
+              </div>
+              <div className="space-y-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Tarih</span>
+                  <span className="text-sm font-bold text-slate-900 dark:text-white">{selectedCourse.date}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Eğitmen</span>
+                  <span className="text-sm font-bold text-slate-900 dark:text-white">Dr. Ayşe Yılmaz</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Kontenjan</span>
+                  <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">14 Kişi Kaldı</span>
+                </div>
+              </div>
+              <div className="flex gap-3 pt-2">
+                <button 
+                  onClick={() => setSelectedCourse(null)}
+                  className="flex-1 py-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:border-slate-300 dark:hover:border-slate-600 transition-colors shadow-sm"
+                >
+                  Kapat
+                </button>
+                <button 
+                  onClick={() => setSelectedCourse(null)}
+                  className="flex-1 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-bold rounded-xl shadow-sm transition-transform active:scale-95"
+                >
+                  Kaydı Tamamla
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

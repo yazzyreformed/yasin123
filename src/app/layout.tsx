@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Öğrenim Yönetim Sistemi",
 };
 
+import { ThemeProvider } from "../components/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +28,16 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans min-h-full flex flex-col">{children}</body>
+      <body className="font-sans min-h-full flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

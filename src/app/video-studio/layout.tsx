@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Sidebar from "../../components/sidebar";
 import Link from "next/link";
 
 export default function VideoStudioLayout({
@@ -21,74 +22,7 @@ export default function VideoStudioLayout({
       )}
 
       {/* Sidebar Navigation */}
-      <aside
-        className={`fixed lg:static inset-y-0 left-0 w-64 bg-primary dark:bg-slate-900 text-white flex-shrink-0 flex flex-col z-50 transform transition-transform duration-300 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        }`}
-      >
-        <div className="p-6">
-          <div className="flex items-center gap-2 mb-8">
-            <span className="material-symbols-outlined text-3xl font-bold">
-              rocket_launch
-            </span>
-            <h2 className="text-xl font-extrabold tracking-tight">
-              BAYNAL GROUP
-            </h2>
-            <button
-              className="lg:hidden ml-auto text-slate-300 hover:text-white"
-              onClick={() => setSidebarOpen(false)}
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
-          </div>
-          <nav className="space-y-1 custom-scrollbar">
-            <Link
-              href="/dashboard"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              <span className="material-symbols-outlined">dashboard</span>
-              <span className="font-medium">Panel</span>
-            </Link>
-            <Link
-              href="/course-creator"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              <span className="material-symbols-outlined">school</span>
-              <span className="font-medium">Eğitimler</span>
-            </Link>
-            <Link
-              href="/role-management"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              <span className="material-symbols-outlined">group</span>
-              <span className="font-medium">Kullanıcılar</span>
-            </Link>
-            <Link
-              href="/video-studio"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/20 shadow-inner"
-            >
-              <span className="material-symbols-outlined">video_library</span>
-              <span className="font-medium">Stüdyo</span>
-            </Link>
-            <Link
-              href="/admin-analytics"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-            >
-              <span className="material-symbols-outlined">analytics</span>
-              <span className="font-medium">Raporlar</span>
-            </Link>
-          </nav>
-        </div>
-        <div className="mt-auto p-6 border-t border-white/10">
-          <Link
-            href="/settings"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition-colors"
-          >
-            <span className="material-symbols-outlined">settings</span>
-            <span className="font-medium">Ayarlar</span>
-          </Link>
-        </div>
-      </aside>
+      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0">

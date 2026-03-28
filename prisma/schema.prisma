@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  STUDENT
+}
+
+model User {
+  id        String       @id @default(uuid())
+  name      String
+  email     String       @unique
+  role      Role         @default(STUDENT)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  courses   Course[]     @relation("InstructorCourses")
+  enrollments Enrollment[]
+}
+
+model Course {
+  id           String       @id @default(uuid())
+  title        String
+  description  String?
+  instructorId String
+  published    Boolean      @default(false)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  instructor   User         @relation("InstructorCourses", fields: [instructorId], references: [id])
+  modules      Module[]
+  enrollments  Enrollment[]
+}
+
+model Module {
+  id        String   @id @default(uuid())
+  title     String
+  courseId  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons   Lesson[]
+}
+
+model Lesson {
+  id        String   @id @default(uuid())
+  title     String
+  content   String?  // Can be text or HTML content
+  videoUrl  String?
+  moduleId  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  module    Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+}
+
+model Enrollment {
+  id             String   @id @default(uuid())
+  userId         String
+  courseId       String
+  progressPercent Float   @default(0)
+  enrolledAt     DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course         Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+}

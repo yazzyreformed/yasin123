@@ -1,9 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState("profil");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="p-8 pb-32 max-w-5xl mx-auto w-full">
@@ -248,32 +257,40 @@ export default function SettingsPage() {
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-4">Tema Seçimi (Otomatik Dark Mode)</label>
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-4">Tema Seçimi</label>
                   <div className="flex gap-4">
-                    {/* Active Selection (System for now, or arbitrary visual focus) */}
-                    <div className="border-2 border-slate-900 dark:border-white rounded-xl p-2 cursor-pointer bg-slate-50 dark:bg-slate-800 shadow-sm">
+                    <div 
+                      onClick={() => setTheme("system")}
+                      className={`border-2 rounded-xl p-2 cursor-pointer transition-colors ${theme === 'system' ? 'border-slate-900 dark:border-white bg-slate-50 dark:bg-slate-800' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 opacity-60 hover:opacity-100'}`}
+                    >
                       <div className="w-24 h-16 bg-gradient-to-r from-white to-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg flex items-center justify-center">
                         <span className="material-symbols-outlined text-[20px] text-slate-500 dark:text-slate-400">brightness_auto</span>
                       </div>
-                      <p className="text-center font-bold text-xs mt-2 text-slate-900 dark:text-white">Sistem</p>
+                      <p className={`text-center font-bold text-xs mt-2 ${theme === 'system' ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>Sistem</p>
                     </div>
 
-                    <div className="border-2 border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 rounded-xl p-2 cursor-pointer bg-white dark:bg-slate-900 transition-colors opacity-80">
+                    <div 
+                      onClick={() => setTheme("light")}
+                      className={`border-2 rounded-xl p-2 cursor-pointer transition-colors ${theme === 'light' ? 'border-amber-500 bg-amber-50/50' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 opacity-60 hover:opacity-100'}`}
+                    >
                       <div className="w-24 h-16 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg flex items-center justify-center">
                         <span className="material-symbols-outlined text-[20px] text-amber-500">light_mode</span>
                       </div>
-                      <p className="text-center font-bold text-xs mt-2 text-slate-500">Açık</p>
+                      <p className={`text-center font-bold text-xs mt-2 ${theme === 'light' ? 'text-amber-600' : 'text-slate-500'}`}>Açık</p>
                     </div>
 
-                    <div className="border-2 border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 rounded-xl p-2 cursor-pointer bg-white dark:bg-slate-900 transition-colors opacity-80">
+                    <div 
+                      onClick={() => setTheme("dark")}
+                      className={`border-2 rounded-xl p-2 cursor-pointer transition-colors ${theme === 'dark' ? 'border-blue-500 bg-blue-900/20' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 opacity-60 hover:opacity-100'}`}
+                    >
                       <div className="w-24 h-16 bg-slate-900 border border-slate-800 shadow-sm rounded-lg flex items-center justify-center">
                         <span className="material-symbols-outlined text-[20px] text-blue-300">dark_mode</span>
                       </div>
-                      <p className="text-center font-bold text-xs mt-2 text-slate-500">Koyu</p>
+                      <p className={`text-center font-bold text-xs mt-2 ${theme === 'dark' ? 'text-blue-400' : 'text-slate-500'}`}>Koyu</p>
                     </div>
                   </div>
                   <p className="text-xs font-medium text-slate-500 mt-5 leading-relaxed">
-                    Şu anda "Sistem" teması (Dark Mode) tarayıcınızın ayarlarına bağlı olarak global düzeyde native olarak çalışmaktadır.
+                    Arayüz temanızı seçin. Dark Mode ayarları anında tüm sitede geçerli olur.
                   </p>
                 </div>
               </div>

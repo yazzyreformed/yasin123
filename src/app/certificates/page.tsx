@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 export default function CertificatesPage() {
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900">
       {/* Top Header */}
@@ -60,7 +61,7 @@ export default function CertificatesPage() {
                 Toplam Sertifika
               </p>
               <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-1">
-                12
+                3
               </h3>
             </div>
             <div className="w-14 h-14 bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300">
@@ -74,7 +75,7 @@ export default function CertificatesPage() {
                 Doğrulanmış
               </p>
               <h3 className="text-3xl font-bold text-slate-900 dark:text-white mt-1">
-                8
+                2
               </h3>
             </div>
             <div className="w-14 h-14 bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700 rounded-full flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -130,7 +131,10 @@ export default function CertificatesPage() {
                 ></div>
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
-                  <button className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform">
+                  <button 
+                    onClick={() => setSelectedCert('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=450')}
+                    className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform"
+                  >
                     Görüntüle
                   </button>
                 </div>
@@ -178,7 +182,10 @@ export default function CertificatesPage() {
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
-                  <button className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform">
+                  <button 
+                    onClick={() => setSelectedCert('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600&h=450')}
+                    className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform"
+                  >
                     Görüntüle
                   </button>
                 </div>
@@ -225,7 +232,10 @@ export default function CertificatesPage() {
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
-                  <button className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform">
+                  <button 
+                    onClick={() => setSelectedCert('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=600&h=450')}
+                    className="bg-white text-slate-900 px-6 py-2 rounded-lg font-bold text-sm shadow-lg transform hover:scale-105 transition-transform"
+                  >
                     Görüntüle
                   </button>
                 </div>
@@ -253,6 +263,32 @@ export default function CertificatesPage() {
             </div>
           </div>
         </section>
+
+      {/* Certificate Modal Overlay */}
+      {selectedCert && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-slate-900/80 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedCert(null)}>
+          <div 
+            className="w-full max-w-5xl bg-slate-100 dark:bg-slate-900 p-2 md:p-4 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 relative animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setSelectedCert(null)}
+              className="absolute -top-4 -right-4 w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform z-10"
+            >
+              <span className="material-symbols-outlined text-[24px]">close</span>
+            </button>
+            <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-800 relative bg-white">
+              <img src={selectedCert} alt="Sertifika Önizleme" className="w-full h-full object-contain" />
+              <div className="absolute bottom-6 right-6 flex items-center gap-3">
+                 <button className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl shadow-xl transition-colors flex items-center gap-2">
+                   <span className="material-symbols-outlined text-[20px]">download</span>
+                   İndir (PDF)
+                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
         {/* Footer */}
         <footer className="mt-8 py-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
